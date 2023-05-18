@@ -25,12 +25,31 @@ function WeatherDisplay({ location }) {
   }, [location]);
 
   return (
-    <div>
-      <h2>Weather Display for {location}</h2>
+    div className="container mt-4  clima">
+      <h2 className="mb-4">Clima actual en {location}</h2>
       {weatherData && (
-        <div>
-          <p>Temperature: {weatherData.main.temp}</p>
-          <p>Description: {weatherData.weather[0].description}</p>
+        <div className="card p-4">
+          <p className="mb-2">
+            <FaTemperatureHigh className="temperature-icon" /> Temperatura: {weatherData.main.temp}
+          </p>
+          <p className="mb-2">
+            <FaSun className="sun-icon" /> Descripción: {weatherData.weather[0].description}
+          </p>
+          <p className="mb-2">
+            <FaWater className="humidity-icon" /> Humedad: {weatherData.main.humidity}%
+          </p>
+          <p className="mb-2">
+            <FaWind className="wind-icon" /> Velocidad del viento: {weatherData.wind.speed} m/s
+          </p>
+          <p className="mb-2">
+            <FaTachometerAlt className="pressure-icon" /> Presión: {weatherData.main.pressure} hPa
+          </p>
+          <p className="mb-2">
+            <FaClock className="sunrise-icon" /> Amanecer: {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString()}
+          </p>
+          <p className="mb-2">
+            <FaClock className="sunset-icon" /> Atardecer: {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString()}
+          </p>
         </div>
       )}
     </div>
