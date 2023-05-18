@@ -7,9 +7,9 @@ function WeatherDisplay({ location }) {
   useEffect(() => {
      const apiKey = 'APY_KEY';
     
-    if (location) {
+       if (location) {
       const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
-      
+
       const fetchWeatherData = async () => {
         try {
           const response = await axios.get(apiUrl);
@@ -19,18 +19,20 @@ function WeatherDisplay({ location }) {
           console.error('Error al obtener los datos del clima:', error);
         }
       };
-  
+
       fetchWeatherData();
     }
   }, [location]);
 
+  const temperature = Math.round(weatherData.main.temp/4.3/3.4);
   return (
-    div className="container mt-4  clima">
+    
+    <div className="container mt-4  clima">
       <h2 className="mb-4">Clima actual en {location}</h2>
       {weatherData && (
         <div className="card p-4">
           <p className="mb-2">
-            <FaTemperatureHigh className="temperature-icon" /> Temperatura: {weatherData.main.temp}
+            <FaTemperatureHigh className="temperature-icon" /> Temperatura: {temperature}º
           </p>
           <p className="mb-2">
             <FaSun className="sun-icon" /> Descripción: {weatherData.weather[0].description}
