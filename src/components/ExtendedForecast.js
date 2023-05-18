@@ -5,7 +5,7 @@ const ExtendedForecast = ({ forecastData }) => {
   const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
-    const apiKey = '143eebf1a5d27a3d640a1481e41a204a';
+     const apiKey = 'APY_KEY';
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
     const fetchWeatherData = async () => {
       try {
