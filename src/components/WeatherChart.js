@@ -24,7 +24,7 @@ function WeatherDisplay({ location }) {
   return (
     <div style={{ textAlign: 'center' }}>
       <h2>Weather Display for {location}</h2>
-      {/* Aquí se mostraría la información del clima actual para la ubicación especificada */}
+      {/* Aquí se muestra la información del clima actual para la ubicación especificada */}
       {weatherData && (
         <div style={{ marginTop: '20px' }}>
           <p>Temperature: {weatherData.temperature}</p>
